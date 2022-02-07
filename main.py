@@ -32,6 +32,8 @@ def playRandomAudio(voice):
 
 
 async def bomdia(member, event):
+
+    print(member)
     try:
         if event.channel != None and member != client.user:
             voice = await event.channel.connect()

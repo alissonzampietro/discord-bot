@@ -7,8 +7,10 @@
 
 ## How use the code:
  - Rename *.env-example* to *.env* and input the token of your discord bot in the field *DISCORD_TOKEN*
+ - create directory called *audios* in the root and fill with all audios that you want to use
  - `pip install -r requirements`
  - `python main.py`
+
 
 
 If you prefer, you can invite my bot :-)
