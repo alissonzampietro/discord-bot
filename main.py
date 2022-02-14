@@ -22,7 +22,12 @@ async def on_message(message):
 
 @client.event
 async def on_voice_state_update(member, before, after):
-    await bomdia(member, after)
+    if(is_mute_events(before, after) == False):
+        await bomdia(member, after)
+
+
+def is_mute_events(before, after):
+    return any([before.self_mute,after.self_mute,before.mute,after.mute,before.deaf,after.deaf,before.self_deaf,after.self_deaf])
 
 
 def playRandomAudio(voice):
@@ -32,7 +37,6 @@ def playRandomAudio(voice):
 
 
 async def bomdia(member, event):
-
     print(member)
     try:
         if event.channel != None and member != client.user:
