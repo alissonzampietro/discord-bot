@@ -27,7 +27,6 @@ async def on_voice_state_update(member, before, after):
 
 
 def is_avoidable_events(before, after):
-    print()
     return any([before.self_mute,after.self_mute,before.mute,after.mute,before.deaf,after.deaf,before.self_deaf,after.self_deaf,before.self_stream,after.self_stream,before.self_video,after.self_video])
 
 
