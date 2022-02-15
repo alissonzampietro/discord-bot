@@ -22,12 +22,13 @@ async def on_message(message):
 
 @client.event
 async def on_voice_state_update(member, before, after):
-    if(is_mute_events(before, after) == False):
+    if(is_avoidable_events(before, after) == False):
         await bomdia(member, after)
 
 
-def is_mute_events(before, after):
-    return any([before.self_mute,after.self_mute,before.mute,after.mute,before.deaf,after.deaf,before.self_deaf,after.self_deaf])
+def is_avoidable_events(before, after):
+    print()
+    return any([before.self_mute,after.self_mute,before.mute,after.mute,before.deaf,after.deaf,before.self_deaf,after.self_deaf,before.self_stream,after.self_stream,before.self_video,after.self_video])
 
 
 def playRandomAudio(voice):
