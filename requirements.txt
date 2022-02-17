@@ -2,3 +2,4 @@ discord
 youtube_dl
 PyNaCl
 python-dotenv
+scrapy
