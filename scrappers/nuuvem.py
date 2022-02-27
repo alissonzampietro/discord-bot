@@ -10,7 +10,7 @@ class Nuuvem(scrapy.Spider):
     start_urls = ['https://www.nuuvem.com/catalog/price/promo/sort/bestselling/sort-mode/desc']
 
     def parse(self, response):
-        for item in response.css('.product__unavailable'):
+        for item in response.css('.product__available'):
             yield {'name': item.css('::attr(data-track-product-name)').get(),'link': item.css('::attr(data-track-product-url)').get(), 'price': item.css('::attr(data-track-product-price)').get()}
 
 def anyNewGame():
