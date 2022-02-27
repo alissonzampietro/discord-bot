@@ -1,3 +1,4 @@
+import os
 from scrappers.nuuvem import notifyChannel
 
 
@@ -7,5 +8,5 @@ def runScrap(client):
         print(message.channel.id)
         if message.author == client.user:
             return
-        if message.content.startswith('tem jogo?'):
+        if message.content.startswith(os.getenv('MESSAGE_TRIGGER_NUUVEM')):
             await notifyChannel(message.channel)
