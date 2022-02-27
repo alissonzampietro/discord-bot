@@ -9,13 +9,6 @@ def runVoice(client):
         print("We have logged in as {0.user}".format(client))
 
     @client.event
-    async def on_message(message):
-        if message.author == client.user:
-            return
-        if message.content.startswith('$hello'):
-            await message.channel.send('Hello!')
-
-    @client.event
     async def on_voice_state_update(member, before, after):
         if(is_avoidable_events(before, after) == False):
             await bomdia(member, after)

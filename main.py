@@ -4,6 +4,8 @@ import discord
 load_dotenv()
 client = discord.Client();
 
+import scrapy
+
 # Modules
 from lib.troll_voice import runVoice 
 from lib.nuuvem_sales import runScrap 

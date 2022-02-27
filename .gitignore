@@ -1,3 +1,5 @@
 .env
 discord-dictionary-users.py
 audios
+__pycache__/
+*.py[cod]
