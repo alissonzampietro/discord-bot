@@ -1,1 +1,1 @@
-* * * * * /usr/bin/runCron.sh
+0 * * * * /usr/bin/runCron.sh
