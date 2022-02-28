@@ -14,15 +14,15 @@ class Nuuvem(scrapy.Spider):
             yield {'name': item.css('::attr(data-track-product-name)').get(),'link': item.css('::attr(data-track-product-url)').get(), 'price': item.css('::attr(data-track-product-price)').get()}
 
 def anyNewGame():
-    if filecmp.cmp(os.getcwd()+'/scrappers/nuuvem.json', os.getcwd()+'/scrappers/bkp_nuuvem.json') == False:
-        shutil.copyfile(os.getcwd()+'/scrappers/nuuvem.json', os.getcwd()+'/scrappers/bkp_nuuvem.json')
+    if filecmp.cmp(os.getcwd()+'/data/nuuvem.json', os.getcwd()+'/data/bkp_nuuvem.json') == False:
+        shutil.copyfile(os.getcwd()+'/data/nuuvem.json', os.getcwd()+'/data/bkp_nuuvem.json')
         return True
     return False
 
 async def notifyChannel(channel):
     try:
         if anyNewGame() == True:
-            with open(os.getcwd()+'/scrappers/nuuvem.json') as f:
+            with open(os.getcwd()+'/data/nuuvem.json') as f:
                 games = json.load(f)
 
             embedVar = discord.Embed(title="Promoções de jogos", color=0x00ff00)
@@ -34,7 +34,7 @@ async def notifyChannel(channel):
 
             await channel.send(embed=embedVar)
         else:
-            await channel.send('Não tem jogo arrombado')
+            await channel.send('Não há nenhum jogo disponível')
     except Error:
         print(Error)
     
